@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Treinamento iOS para novos estagiários do NATI.
 
-Things you may want to cover:
+Lista de contatos:
 
-* Ruby version
+* Criar usuário
 
-* System dependencies
+* Login
 
-* Configuration
+* Logout
 
-* Database creation
+* Criar contato
 
-* Database initialization
+* Listar contatos
 
-* How to run the test suite
+* Editar contato
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Excluir contato
