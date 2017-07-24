@@ -1,8 +1,8 @@
 # README
 
-Treinamento iOS para novos estagiários do NATI.
+Treinamento iOS para novos estagiários do NATI. (backend)
 
-Lista de contatos:
+App: Lista de contatos:
 
 * Criar usuário
 
