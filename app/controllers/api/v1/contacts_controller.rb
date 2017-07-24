@@ -33,7 +33,7 @@ module Api::V1
     if @contact.save
         render json: @contact, root: "data", adapter: :json, status: :created
     else
-        render json: {status: @contact.errors}, status: :unprocessable_entity
+        render json: {errors: error_messages(@contact)}, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +43,7 @@ module Api::V1
     if @contact.update(contact_params)
         render json: @contact, root: "data", adapter: :json, status: :ok
     else
-        render json: {status: @contact.errors}, status: :unprocessable_entity
+        render json: {errors: error_messages(@contact)}, status: :unprocessable_entity
     end
   end
 
@@ -55,6 +55,16 @@ module Api::V1
   end
 
   private
+
+    def error_messages(contact)
+      messages = []
+      contact.errors.messages.each do |k,v| 
+        messages.push("o atributo '#{k}' #{v[0]}")
+      end
+      messages
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
