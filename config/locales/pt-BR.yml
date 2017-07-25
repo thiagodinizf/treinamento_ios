@@ -14,6 +14,7 @@ pt-BR:
         email: Email
         phone_number: Número
         nickname: Apelido
+        image_url: Foto
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
