@@ -7,7 +7,7 @@ module Api::V1
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(user_id: current_api_v1_user.id)
     render json: @contacts, root: "data", adapter: :json, status: :ok
   end
 
@@ -29,11 +29,10 @@ module Api::V1
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
     if @contact.save
         render json: @contact, root: "data", adapter: :json, status: :created
     else
-        render json: {errors: error_messages(@contact)}, status: :unprocessable_entity
+        render json: {errors: {full_messages: error_messages(@contact)}}, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +42,7 @@ module Api::V1
     if @contact.update(contact_params)
         render json: @contact, root: "data", adapter: :json, status: :ok
     else
-        render json: {errors: error_messages(@contact)}, status: :unprocessable_entity
+        render json: {errors: {full_messages: error_messages(@contact)}}, status: :unprocessable_entity
     end
   end
 
@@ -59,12 +58,11 @@ module Api::V1
     def error_messages(contact)
       messages = []
       contact.errors.messages.each do |k,v| 
-        messages.push("o atributo '#{k}' #{v[0]}")
+        messages.push("#{t("activerecord.attributes.contact.#{k}")} #{v[0]}")
       end
       messages
     end
-
-
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])

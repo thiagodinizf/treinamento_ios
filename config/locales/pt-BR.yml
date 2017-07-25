@@ -5,57 +5,15 @@ pt-BR:
     update: "%{model} foi atualizado com sucesso."
     destroy: "%{model} foi removido com sucesso."
     models:
-      predisposal_factor: Fator de Predisposição
-      predisposal_level: Nível de Predisposição
-      tip: Dica
+      contact: Contato
       user: Usuário
-      cup: Copo
-      question: Questionário
-      shield: Escudo
     attributes:
-      predisposal_factor:
-        weight: Peso
+      contact:
         name: Nome
-        created_at: Criado em
-      predisposal_level:
-        level: Nível
-        name: Nome
-        description: Descrição
-        created_at: Criado em
-      tip:
-        description: Descrição
-        type_of_tip: Tipo
-        created_at: Criado em
-      user:
-        role: Tipo
-        password: Senha
-        password_confirmation: Confirmação de senha
-        created_at: Criado em
-      profile:
-        name: Nome
+        birth_date: Data de Nascimento
+        email: Email
+        phone_number: Número
         nickname: Apelido
-        gender_id: Gênero
-        birth_date: Data de nascimento
-        protection_level: Nível de proteção
-      cup:
-        time: Horário
-        created_at: Criado em
-      question:
-        description: Pergunta
-        created_at: Criado em
-      option:
-        description: Opção
-      shield:
-        description: Descrição
-        protection_level: Nível de Proteção
-        created_at: Criado em
-    enum:
-      type_of_tip:
-        can: Pode fazer
-        can_not: Não pode fazer
-      role:
-        admin: Administrador
-        mobile: Mobile
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -162,7 +120,7 @@ pt-BR:
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
-      blank: não pode ficar em branco
+      blank: é obrigatório
       present: deve ficar em branco
       confirmation: não é igual a %{attribute}
       empty: não pode ficar vazio
