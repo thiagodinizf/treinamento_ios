@@ -70,7 +70,7 @@ module Api::V1
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-       params.require(:contact).permit(:id, :name, :nickname, :birth_date, :email, :phone_number, :nickname, :user_id)
+       params.require(:contact).permit(:id, :name, :nickname, :birth_date, :email, :phone_number, :nickname, :user_id, :image_url)
     end
 
   end
